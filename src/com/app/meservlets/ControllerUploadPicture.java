@@ -38,3 +38,8 @@ public class ControllerUploadPicture extends HttpServlet {
 	}
 
 }
+
+
+
+
+

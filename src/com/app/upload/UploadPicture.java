@@ -11,14 +11,17 @@ import javax.servlet.http.Part;
 
 /**
  * 
- * @author user-sqli
- *   date:  12/05/2016 17:30
+ * @author user-sqli date: 12/05/2016 17:30
  */
 public class UploadPicture {
 	private static final String EXTENSION = ".";
 	public static final String SAVE_DIR = "uploadImage";
 	private static UploadPicture uploadPicture = null;
-	private static final Logger LOGGER = Logger.getLogger( UploadPicture.class.getName() );
+	private static final Logger LOGGER = Logger.getLogger(UploadPicture.class
+			.getName());
+
+	private UploadPicture() {
+	}
 
 	public String TranseferPicture(Part part, String appPath) {
 		String savePath = appPath + File.separator + SAVE_DIR;
@@ -32,10 +35,11 @@ public class UploadPicture {
 		String nameImage = fileName + EXTENSION + getExtensionImage(part);
 		try {
 			part.write(savePath + File.separator + nameImage);
-			LOGGER.log( Level.FINE, "Upload  Picture to {0} ", savePath + File.separator + nameImage );
+			LOGGER.log(Level.FINE, "Upload  Picture to {0} ", savePath
+					+ File.separator + nameImage);
 
 		} catch (IOException ex) {
-		    LOGGER.log( Level.SEVERE, ex.toString(), ex );
+			LOGGER.log(Level.SEVERE, ex.toString(), ex);
 		}
 		return nameImage;
 	}
